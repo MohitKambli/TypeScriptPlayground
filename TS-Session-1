@@ -1,0 +1,63 @@
+// Type Basics
+const area = (radius: number) => {
+    return 2 * radius * Math.PI;
+}
+let radius = 5
+console.log('Area of circle: ', area(radius));
+
+
+// Arrays
+const twoSum = (arr: number[], n: number, target: number) => {
+    let map = new Map();
+    for(let i=0;i<n;i++) {
+        let val = target - arr[i];
+        if(map.has(val))
+            return [map.get(val), i];
+        else
+            map.set(arr[i], i);
+    }
+    return [-1,-1];
+}
+let arr = [1,2,3,4,5];
+let target = 6, n = arr.length;
+console.log(twoSum(arr, n, target));
+
+// Objects
+let ninja = {
+    name: 'Mario',
+    belt: 'Black',
+    age: 30
+};
+console.log(ninja.name);
+console.log(ninja.belt);
+console.log(ninja.age);
+
+
+// Explicit Types
+let character : string;
+let age : number;
+let isLoggedIn : boolean;
+let ninjas : string[] = []; // Initialize with an empty array
+let ninjaOne : object;
+let ninjaTwo : {
+    name: string,
+    age: number,
+    beltColour: string
+};
+
+// Union Types
+let mixed : (string | number | boolean)[] = [];
+let uid : string | number;
+
+// Implementation
+character = 'Ninja';
+age = 20;
+isLoggedIn = false;
+ninjas.push('Shaun');
+mixed.push('Hello');mixed.push(20);mixed.push(false)
+uid = 'Hello';
+uid = 123;
+ninjaOne = {name: 'Yoshi', age: 40};
+ninjaTwo = {name: 'Luigi', age: 60, beltColour: 'white'};
+console.log(ninjaOne);
+console.log(ninjaTwo);
