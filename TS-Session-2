@@ -1,0 +1,74 @@
+let age: any = 25;
+age = true;
+console.log(age);
+age = 'Hello';
+console.log(age);
+age = {
+    name: 'Luigi'
+};
+console.log(age);
+
+let mixed : any[] = [];
+mixed.push(5);
+mixed.push('Mario');
+mixed.push(false);
+console.log(mixed);
+
+let ninja : {name: any, age: any};
+ninja = {name: 'Yoshi', age: 30};
+console.log(ninja);
+ninja = {name: 25, age: 'Yoshi'};
+console.log(ninja);
+
+
+let greet : Function;
+greet = () => {
+    console.log("Hello World");
+}
+
+// Do required parameters first and then optional parameters
+const add = (a: number, b: number, c: number | string = 10) => {
+    console.log(a + b);
+    console.log(c);
+}
+add(2, 3, '10');
+
+// This is how we specify return type of a function
+const minus = (a: number, b: number) : number =>  {
+    return a - b;
+}
+let ans = minus(10, 7);
+console.log(ans);
+
+
+// Type Alias
+type stringOrNum = string | number;
+type objectWithName = {name: string, uid: stringOrNum};
+
+const logDetaills = (uid: stringOrNum, item: string) => {
+    console.log(`${item} has a uid of ${uid}`);
+}
+
+const greeting = (user: objectWithName) => {
+    console.log(`${user.name} says hello`);
+}
+let greetings: (a: string, b: string) => void;
+greetings = (name: string, greet: string) => {
+    console.log(`${name} says ${greet}`);
+}
+
+
+let calc: (a: number, b: number, c: string) => number;
+calc = (numOne: number, numTwo: number, action: string) => {
+    if(action === 'add')
+        return numOne + numTwo;
+    else
+        return numOne - numTwo;
+}
+
+type person = {name: string, age: number};
+
+let logDetails: (obj: {name: string, age: number}) => void;
+logDetails = (ninja: person) => {
+    console.log(`${ninja.name} is ${ninja.age} years old`);
+}
